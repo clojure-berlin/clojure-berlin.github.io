@@ -1,7 +1,7 @@
 name: Build and deploy GH Pages
-
 on: push
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,6 +15,6 @@ jobs:
           # Target branch
           PAGES_BRANCH: gh-pages
           # Using automatic token from GitHub
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.DEPLOY_KEY }}
     permissions:
-      packages: write
+      contents: write
