@@ -1,0 +1,274 @@
+// Variables
+$primary-color: #5881d8;
+$text-color: #333;
+$background-color: #fff;
+$spacing-unit: 1rem;
+$max-width: 1200px;
+
+// Typography
+$font-family-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-condensed: 'IBM Plex Sans Condensed', sans-serif;
+$font-family-mono: 'Fira Code', monospace;
+
+// Mixins
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-sans;
+  line-height: 1.6;
+  color: $text-color;
+  background: $background-color;
+}
+
+// Layout
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  @include container;
+}
+
+.header {
+  padding: $spacing-unit * 2 0;
+  border-bottom: 1px solid lighten($text-color, 70%);
+
+  .logo-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: $spacing-unit * 2;
+
+    .logo {
+      max-width: 120px;
+      height: auto;
+    }
+
+    h1 {
+      font-family: $font-family-condensed;
+      font-size: 2.5rem;
+      color: $primary-color;
+    }
+  }
+}
+
+.main-content {
+  display: grid;
+  gap: $spacing-unit * 3;
+  padding: $spacing-unit * 2 0;
+
+  section {
+    display: grid;
+    gap: $spacing-unit;
+  }
+}
+
+// Typography styles
+h2 {
+  font-size: 1.8rem;
+  color: $primary-color;
+  margin-bottom: $spacing-unit;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: darken($primary-color, 10%);
+}
+
+p {
+  margin-bottom: $spacing-unit;
+}
+
+// Lists
+ul {
+  list-style-position: inside;
+  padding-left: $spacing-unit;
+}
+
+// Schedule Grid
+.schedule-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px;
+  background: lighten($text-color, 70%);
+  border: 1px solid lighten($text-color, 70%);
+
+  .schedule-header,
+  .schedule-cell {
+    padding: $spacing-unit;
+    background: $background-color;
+  }
+
+  .schedule-header {
+    font-weight: bold;
+    background: lighten($primary-color, 35%);
+  }
+}
+
+// Connect section
+.connect-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-unit;
+}
+
+.button {
+  display: inline-block;
+  padding: $spacing-unit ($spacing-unit * 2);
+  background: $primary-color;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}
+
+// Footer
+.footer {
+  padding: $spacing-unit * 2 0;
+  border-top: 1px solid lighten($text-color, 70%);
+  text-align: center;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .header .logo-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .schedule-grid {
+    font-size: 0.9rem;
+  }
+}
+
+.schedule {
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px;
+    background: lighten($text-color, 70%);
+    border: 1px solid lighten($text-color, 70%);
+    margin-bottom: $spacing-unit * 2;
+
+    .schedule-header,
+    .schedule-cell {
+      padding: $spacing-unit;
+      background: $background-color;
+    }
+
+    .schedule-header {
+      font-weight: bold;
+      background: lighten($primary-color, 35%);
+    }
+
+    .schedule-cell {
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: bold;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .event-description {
+        margin-top: $spacing-unit * 0.5;
+        font-size: 0.9em;
+        color: lighten($text-color, 20%);
+      }
+    }
+  }
+}
+
+.past-events-link {
+  text-align: right;
+  margin-top: $spacing-unit;
+}
+
+.button.secondary {
+  background: transparent;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  
+  &:hover {
+    background: lighten($primary-color, 35%);
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-grid {
+    font-size: 0.9rem;
+    
+    .schedule-cell {
+      .event-description {
+        font-size: 0.85em;
+      }
+    }
+  }
+}
+
+.events-list {
+  display: grid;
+  gap: $spacing-unit * 2;
+  padding: $spacing-unit * 2 0;
+
+  .event-item {
+    border-bottom: 1px solid lighten($text-color, 70%);
+    padding-bottom: $spacing-unit * 2;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      margin-bottom: $spacing-unit * 0.5;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    time {
+      display: block;
+      color: lighten($text-color, 20%);
+      margin-bottom: $spacing-unit;
+      font-family: $font-family-mono;
+      font-size: 0.9em;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block extraheaders %}
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:url" content="{{ page.permalink }}">
+<meta property="og:type" content="article">
+<meta property="og:description" content="{% if page.summary %}{{ page.summary | striptags | safe}}{% endif %}">
+<meta property="og:image" content="{% if page.extra.og_image %}{{ page.extra.og_image | safe}}{% else %}/clojureberlin.png{% endif %}">
+{% endblock extraheaders %}
+{% block title %} {{ page.title }} {% endblock title %}
+
+{% block content %}
+
+<header>
+  <h1>
+    {{ page.title }}
+  </h1>
+</header>
+<section class="metadata">
+  <p class="date">Date:<br><strong><time datetime="{{ page.date }}">{{ page.date }}</time></strong></p>
+</section>
+<main>
+  {{ page.content | safe }}
+</main>
+
+{% endblock content %}

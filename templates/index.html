@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <header class="header">
+    <div class="logo-container">
+      <img src="/clojureberlin.svg" alt="Clojure Berlin Logo" class="logo">
+      <h1>Clojure Berlin Meetup</h1>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="intro">
+      <h2>What?</h2>
+      <p>
+        Clojure Berlin is a get-together of people interested in Clojure—a Lisp dialect for the JVM. Come and discuss what you're working on, ask questions, and meet other like-minded people.
+      </p>
+      <p>
+        Talks can be about anything, but we are focusing on Clojure related topics.
+      </p>
+    </section>
+
+    <section class="topics">
+      <h3>Potential Talk Topics</h3>
+      <ul>
+        <li>Compilers, parsers, virtual machines, IDEs, profiling, etc.</li>
+        <li>Databases, storage, networking, distributed systems</li>
+        <li>Large scale infrastructure, low latency, high availability services</li>
+        <li>Formal methods, verification</li>
+        <li>Browsers, kernel development, security, etc.</li>
+      </ul>
+    </section>
+
+    <section class="schedule">
+      <h2>Upcoming Events</h2>
+      {% set events_section = get_section(path="events/_index.md") %}
+      {% if events_section.pages %}
+        <div class="schedule-grid">
+          <div class="schedule-header">Date</div>
+          <div class="schedule-header">Event</div>
+          {% for page in events_section.pages | sort(attribute="date") %}
+            {% if page.extra.status and page.extra.status == "upcoming" %}
+              <div class="schedule-cell">
+                <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+              </div>
+              <div class="schedule-cell">
+                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                {% if page.description %}
+                  <p class="event-description">{{ page.description }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="past-events-link">
+          <a href="/events" class="button secondary">View Past Events</a>
+        </div>
+      {% else %}
+        <p>No upcoming events scheduled. Check back soon!</p>
+      {% endif %}
+    </section>
+
+    <section class="connect">
+      <h2>Stay in the loop</h2>
+      <div class="connect-links">
+        <a href="" class="button">Join Slack</a>
+        <a href="" class="button">Sign up for Updates</a>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>
+        Clojure Berlin is organized by [organizers].
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Inspired by <a href="https://nycsystems.xyz">nycsystems.xyz</a></p>
+  </footer>
+</div>
+{% endblock content %}
