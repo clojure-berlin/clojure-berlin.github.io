@@ -16,3 +16,5 @@ jobs:
           PAGES_BRANCH: gh-pages
           # Using automatic token from GitHub
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      packages: write
