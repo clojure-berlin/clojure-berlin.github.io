@@ -11,16 +11,18 @@
 
 {% block content %}
 
+<div class="container event-page">
 <header>
   <h1>
     {{ page.title }}
   </h1>
 </header>
+<main>
 <section class="metadata">
   <p class="date">Date:<br><strong><time datetime="{{ page.date }}">{{ page.date }}</time></strong></p>
 </section>
-<main>
   {{ page.content | safe }}
 </main>
+</div>
 
 {% endblock content %}
