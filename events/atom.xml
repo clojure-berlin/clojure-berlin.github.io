@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - All Events</title>
+    <link rel="self" type="application/atom+xml" href="https://clojure.berlin/events/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://clojure.berlin/events/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-12-19T00:00:00+00:00</updated>
+    <id>https://clojure.berlin/events/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Get together drinks @ Trespassers</title>
+        <published>2024-12-19T00:00:00+00:00</published>
+        <updated>2024-12-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/2024-12/"/>
+        <id>https://clojure.berlin/events/2024-12/</id>
+        
+        <content type="html" xml:base="https://clojure.berlin/events/2024-12/">&lt;h1 id=&quot;clojure-berlin-pre-holidays-get-together-drinks&quot;&gt;Clojure Berlin Pre Holidays get together drinks&lt;&#x2F;h1&gt;
+&lt;p&gt;People left in Berlin - let&#x27;s meetup and get together before the year is out!&lt;&#x2F;p&gt;
+&lt;p&gt;Date: 19th December
+Location: &lt;a href=&quot;https:&#x2F;&#x2F;www.trespassers.eu&#x2F;&quot;&gt;Trespassers&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Please &lt;a href=&quot;https:&#x2F;&#x2F;lu.ma&#x2F;kocnw8c2&quot;&gt;RSVP here&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
