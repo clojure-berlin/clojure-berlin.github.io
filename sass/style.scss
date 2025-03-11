@@ -231,3 +231,45 @@ p {
     padding: $spacing-unit ($spacing-unit * 1.5);
   }
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $spacing-unit 0;
+  
+  tr {
+    &:nth-child(even) {
+      background-color: lighten($text-color, 75%);
+    }
+  }
+  
+  td {
+    padding: $spacing-unit;
+    border-bottom: 1px solid lighten($text-color, 70%);
+    
+    &:first-child {
+      font-weight: 500;
+      width: 30%;
+    }
+  }
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  time {
+    font-family: $font-family-mono;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 768px) {
+    td {
+      padding: $spacing-unit * 0.75;
+    }
+  }
+}
