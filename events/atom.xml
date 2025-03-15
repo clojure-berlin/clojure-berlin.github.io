@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - All Events</title>
+    <link rel="self" type="application/atom+xml" href="https://clojure.berlin/events/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://clojure.berlin/events/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-03-13T00:00:00+00:00</updated>
+    <id>https://clojure.berlin/events/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Bits &amp; Beers: Clojure Berlin meets Elixir Berlin</title>
+        <published>2025-03-13T00:00:00+00:00</published>
+        <updated>2025-03-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/elixir-drinks/"/>
+        <id>https://clojure.berlin/events/elixir-drinks/</id>
+        
+        <content type="html" xml:base="https://clojure.berlin/events/elixir-drinks/">&lt;h1 id=&quot;pre-bobkonf-get-together-with-elixir-berlin&quot;&gt;Pre Bobkonf get together with Elixir Berlin&lt;&#x2F;h1&gt;
+&lt;p&gt;Join us for friendly beers at Volksbar in Mitte on Thursday! We&#x27;re organizing this event together with our fellow Functional Programming aficionados from &lt;a href=&quot;https:&#x2F;&#x2F;elixir.berlin&quot;&gt;Elixir Berlin&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;But wait, there&#x27;s more: this event also doubles as pre-conference drinks for &lt;a href=&quot;https:&#x2F;&#x2F;bobkonf.de&#x2F;2025&#x2F;en&#x2F;&quot;&gt;Bobkonf 2025&lt;&#x2F;a&gt;, which is happening this weekend.&lt;&#x2F;p&gt;
+&lt;p&gt;If you don&#x27;t have a ticket yet, use discount code CLOJURE-ELIXIR-MEETUP-BONUS for 12.5% off.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Get together drinks @ Trespassers</title>
+        <published>2024-12-19T00:00:00+00:00</published>
+        <updated>2024-12-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/2024-12/"/>
+        <id>https://clojure.berlin/events/2024-12/</id>
+        
+        <content type="html" xml:base="https://clojure.berlin/events/2024-12/">&lt;h1 id=&quot;clojure-berlin-pre-holidays-get-together-drinks&quot;&gt;Clojure Berlin Pre Holidays get together drinks&lt;&#x2F;h1&gt;
+&lt;p&gt;People left in Berlin - let&#x27;s meetup and get together before the year is out!&lt;&#x2F;p&gt;
+&lt;p&gt;Date: 19th December
+Location: &lt;a href=&quot;https:&#x2F;&#x2F;www.trespassers.eu&#x2F;&quot;&gt;Trespassers&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Please &lt;a href=&quot;https:&#x2F;&#x2F;lu.ma&#x2F;kocnw8c2&quot;&gt;RSVP here&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
