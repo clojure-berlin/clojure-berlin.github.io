@@ -119,34 +119,39 @@ ul {
     time {
       font-family: $font-family-mono;
     }
-
-    .event-description {
-      margin-top: 0.5rem;
-      font-size: 0.9em;
-    }
   }
 }
 
 // Connect section
 .connect-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
   gap: $spacing-unit;
+  width: 100%;
+  justify-content: space-between;
+  .button {
+    flex: 1;
+  }
 }
-
 
 .button {
   display: inline-block;
-  padding: $spacing-unit ($spacing-unit * 2);
+  padding: $spacing-unit ($spacing-unit * 2.5);
+  min-width: $spacing-unit * 10;
   background: $primary-color;
   color: $background-color;
   text-decoration: none;
   font-family: $font-family-mono;
-  text-transform: uppercase;
   font-weight: bold;
   border: 2px solid $primary-color;
   transition: all 0.2s;
   text-align: center;
+  align-content: center;
+  // account for emoji off-centreing the text visually
+  span {
+    margin-left: -1rem;
+  }
 
   &:hover {
     background: $background-color;
@@ -221,10 +226,6 @@ p {
 
   .schedule-grid {
     font-size: 0.9rem;
-  }
-
-  .button {
-    padding: $spacing-unit ($spacing-unit * 1.5);
   }
 }
 
