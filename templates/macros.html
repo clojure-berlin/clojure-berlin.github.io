@@ -1,0 +1,73 @@
+{% macro event_meta() %}
+{% if page.extra.event_start and page.extra.event_end %}
+{% set event_timestamp = now() | date(format="%Y%m%dT%H%M%SZ") %}
+{% set event_start = page.extra.event_start | date(format="%Y%m%dT%H%M%SZ") %}
+{% set event_end = page.extra.event_end | date(format="%Y%m%dT%H%M%SZ") %}
+{% set event_title = page.title %}
+{% set event_description = page.content | linebreaksbr | replace(from="<br>", to="\r\r") | striptags %}
+{% set location_name = page.extra.location_name %}
+{% set location_address = page.extra.location_address | default(value="") %}
+{% set location = location_name %}
+{% if location_address %}
+  {% set location = location ~ ", " ~ location_address %}
+{% endif %}
+{% set event_ics = "BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Meetup//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTAMP:" ~ event_timestamp ~ "
+DTSTART:" ~ event_start ~ "
+DTEND:" ~ event_end ~ "
+SUMMARY:" ~ event_title ~ "
+DESCRIPTION:" ~ event_description ~ "
+LOCATION:" ~ location ~ "
+END:VEVENT
+END:VCALENDAR" %}
+
+{% set event_ics_b64 = event_ics | trim | replace(from="\n", to="%0A") | replace(from="\r", to="\n") | base64_encode %}
+
+{% set text = event_title | urlencode %}
+{% set details = page.content | replace(from="%", to="%25") | spaceless | urlencode | replace(from="%20", to="+") %}
+{% set location = location | urlencode %}
+{% set dates = event_start ~ "%2F" ~ event_end %}
+{% set gcal_link = "https://www.google.com/calendar/render?action=TEMPLATE"
+    ~ "&text=" ~ text 
+    ~ "&details=" ~ details 
+    ~ "&location=" ~ location
+    ~ "&dates=" ~ dates 
+    %}
+<table>
+  <tr>
+    <td>&#X1F4C5; Date</td>
+    <td><time datetime="{{ page.extra.event_start | date(format="%Y-%m-%d %H:%M") }}">{{ page.extra.event_start | date(format="%d.%m.%Y") }}</time></td>
+  </tr>
+  <tr>
+    <td>&#X1F562; Time</td>
+    <td>from <time datetime="{{ page.extra.event_start | date(format="%Y-%m-%d %H:%M") }}">{{ page.extra.event_start | date(format="%H:%M", timezone="Europe/Berlin") }}</time></td>
+  </tr>
+  <tr>
+    <td>&#X1F4CD; Location</td>
+    <!-- At time of committing, apple maps links redirect to google on non Apple devices, so it seems the most portable way to link locations -->
+    <td><a href="https://maps.apple.com/?address={{ location | replace(from=", ", to= ",") | replace(from=" ", to="+") }}">{{ location_name }}</a></td>
+  </tr>
+  <tr>
+    <td>🗓️ Calendar</td>
+    <td><a href="data:text/calendar;charset=utf-8;base64,{{ event_ics_b64 }}" download="{{ page.slug }}.ics">iCal</a> | <a href="{{ gcal_link }}">Google Calendar</a></td>
+  </tr>
+  {% if page.extra.luma %}
+  <tr>
+    <td>✨ Luma</td>
+    <td><a href="{{ page.extra.luma }}">RSVP on Luma</a></td>
+  </tr>
+  {% endif %}
+  {% if page.extra.meetup %}
+  <tr>
+    <td>&#X1F4A9; Meetup</td>
+    <td><a href="{{ page.extra.meetup }}">RSVP on Meetup</a></td>
+  </tr>
+  {% endif %}
+</table>
+{% endif %}
+{% endmacro %}

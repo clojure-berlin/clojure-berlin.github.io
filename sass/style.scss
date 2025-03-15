@@ -185,10 +185,6 @@ main {
     grid-template-rows: auto;
     height: fit-content;
     column-gap: $spacing-unit;
-    section.metadata {
-      display: block;
-      grid-column: 1;
-    }
     * {
       grid-column: 2;
       height: fit-content;

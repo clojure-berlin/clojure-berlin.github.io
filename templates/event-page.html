@@ -18,10 +18,10 @@
   </h1>
 </header>
 <main>
-<section class="metadata">
-  <p class="date">Date:<br><strong><time datetime="{{ page.date }}">{{ page.date }}</time></strong></p>
-</section>
   {{ page.content | safe }}
+<section class="metadata">
+  {{ macros::event_meta() }}
+</section>
 </main>
 </div>
 
