@@ -6,19 +6,19 @@
   </header>
 
   <main>
-    <div class="events-list">
-      {% for page in section.pages | sort(attribute="date") | reverse %}
-        {% if page.extra.status and page.extra.status == "past" %}
-          <article class="event-item">
-            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-            {% if page.description %}
-              <p>{{ page.description }}</p>
-            {% endif %}
-          </article>
-        {% endif %}
-      {% endfor %}
-    </div>
+    <section class="schedule">
+      <div class="schedule-grid">
+        <div class="schedule-header">Date</div>
+        <div class="schedule-header">Event</div>
+        {% for page in section.pages | filter(attribute="extra.status", value="past") | sort(attribute="date") | reverse %}
+        <div class="schedule-cell">
+          <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+        </div>
+        <div class="schedule-cell">
+          <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+        </div>
+        {% endfor %}
+    </section>
   </main>
 </div>
 {% endblock content %}
