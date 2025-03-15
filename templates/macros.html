@@ -1,8 +1,8 @@
 {% macro event_meta() %}
 {% if page.extra.event_start and page.extra.event_end %}
 {% set event_timestamp = now() | date(format="%Y%m%dT%H%M%SZ") %}
-{% set event_start = page.extra.event_start | date(format="%Y%m%dT%H%M%SZ") %}
-{% set event_end = page.extra.event_end | date(format="%Y%m%dT%H%M%SZ") %}
+{% set event_start = page.extra.event_start | date(format="%Y%m%dT%H%M%S") %}
+{% set event_end = page.extra.event_end | date(format="%Y%m%dT%H%M%S") %}
 {% set event_title = page.title %}
 {% set event_description = page.content | linebreaksbr | replace(from="<br>", to="\r\r") | striptags %}
 {% set location_name = page.extra.location_name %}
@@ -31,7 +31,8 @@ END:VCALENDAR" %}
 {% set text = event_title | urlencode %}
 {% set details = page.content | replace(from="%", to="%25") | spaceless | urlencode | replace(from="%20", to="+") %}
 {% set location = location | urlencode %}
-{% set dates = event_start ~ "%2F" ~ event_end %}
+{% set tz_offset = page.extra.event_start | date(format="%Z") %}
+{% set dates = event_start ~ tz_offset ~ "%2F" ~ event_end ~ tz_offset %}
 {% set gcal_link = "https://www.google.com/calendar/render?action=TEMPLATE"
     ~ "&text=" ~ text 
     ~ "&details=" ~ details 
