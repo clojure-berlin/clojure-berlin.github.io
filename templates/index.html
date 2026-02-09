@@ -8,7 +8,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section>
       <h2>What?</h2>
       <p>
@@ -34,18 +34,22 @@
       <h2>Upcoming Events</h2>
       {% set events_section = get_section(path="events/_index.md") %}
       {% if events_section.pages | filter(attribute="extra.status", value="upcoming") %}
-        <div class="schedule-grid">
-          <div class="schedule-header">Date</div>
-          <div class="schedule-header">Event</div>
+        <table class="schedule-grid">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Event</th>
+            </tr>
+          </thead>
+          <tbody>
           {% for page in events_section.pages | filter(attribute="extra.status", value="upcoming") |sort(attribute="date") %}
-            <div class="schedule-cell">
-              <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-            </div>
-            <div class="schedule-cell">
-              <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-            </div>
+            <tr>
+              <td><time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time></td>
+              <td><a href="{{ page.permalink | safe }}">{{ page.title }}</a></td>
+            </tr>
           {% endfor %}
-        </div>
+          </tbody>
+        </table>
       {% else %}
             <p>No upcoming events scheduled. Check back soon, or write to us on Slack!</p>
       {% endif %}
@@ -55,14 +59,14 @@
       </div>
     </section>
 
-    <section class="connect">
+    <nav class="connect" aria-label="Stay connected">
       <h2>Stay in the loop</h2>
       <div class="connect-links">
-        <a href="https://clojurians.slack.com/archives/C067K2KFD" rel="noopener noreferrer" class="button"><span>🗨️ Slack</span></a>
-        <a href="/atom.xml" class="button"><span>📡 Atom Feed</span></a>
-        <a href="https://lu.ma/clojure.berlin" rel="noopener noreferrer" class="button"><span>✨ lu.ma</span></a>
+        <a href="https://clojurians.slack.com/archives/C067K2KFD" rel="noopener noreferrer" class="button" aria-label="Slack"><span aria-hidden="true">🗨️ </span>Slack</a>
+        <a href="/atom.xml" class="button" aria-label="Atom Feed"><span aria-hidden="true">📡 </span>Atom Feed</a>
+        <a href="https://lu.ma/clojure.berlin" rel="noopener noreferrer" class="button" aria-label="lu.ma"><span aria-hidden="true">✨ </span>lu.ma</a>
       </div>
-    </section>
+    </nav>
 
     <section class="about">
       <h2>About</h2>

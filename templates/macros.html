@@ -41,31 +41,31 @@ END:VCALENDAR" %}
     %}
 <table>
   <tr>
-    <td>&#X1F4C5; Date</td>
+    <th scope="row"><span aria-hidden="true">&#X1F4C5; </span>Date</th>
     <td><time datetime="{{ page.extra.event_start | date(format="%Y-%m-%d %H:%M") }}">{{ page.extra.event_start | date(format="%d.%m.%Y") }}</time></td>
   </tr>
   <tr>
-    <td>&#X1F562; Time</td>
+    <th scope="row"><span aria-hidden="true">&#X1F562; </span>Time</th>
     <td>from <time datetime="{{ page.extra.event_start | date(format="%Y-%m-%d %H:%M") }}">{{ page.extra.event_start | date(format="%H:%M", timezone="Europe/Berlin") }}</time></td>
   </tr>
   <tr>
-    <td>&#X1F4CD; Location</td>
+    <th scope="row"><span aria-hidden="true">&#X1F4CD; </span>Location</th>
     <!-- At time of committing, apple maps links redirect to google on non Apple devices, so it seems the most portable way to link locations -->
     <td><a href="https://maps.apple.com/?address={{ location | replace(from=", ", to= ",") | replace(from=" ", to="+") }}" rel="noopener noreferrer">{{ location_name }}</a></td>
   </tr>
   <tr>
-    <td>🗓️ Calendar</td>
+    <th scope="row"><span aria-hidden="true">🗓️ </span>Calendar</th>
     <td><a href="data:text/calendar;charset=utf-8;base64,{{ event_ics_b64 }}" download="{{ page.slug }}.ics">iCal</a> | <a href="{{ gcal_link }}">Google Calendar</a></td>
   </tr>
   {% if page.extra.luma %}
   <tr>
-    <td>✨ Luma</td>
+    <th scope="row"><span aria-hidden="true">✨ </span>Luma</th>
     <td><a href="{{ page.extra.luma }}" rel="noopener noreferrer">RSVP on Luma</a></td>
   </tr>
   {% endif %}
   {% if page.extra.meetup %}
   <tr>
-    <td>&#X1F4A9; Meetup</td>
+    <th scope="row"><span aria-hidden="true">&#X1F4A9; </span>Meetup</th>
     <td><a href="{{ page.extra.meetup }}" rel="noopener noreferrer">RSVP on Meetup</a></td>
   </tr>
   {% endif %}

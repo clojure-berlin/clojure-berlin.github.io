@@ -5,19 +5,24 @@
     <h1>Past Events</h1>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="schedule">
-      <div class="schedule-grid">
-        <div class="schedule-header">Date</div>
-        <div class="schedule-header">Event</div>
+      <table class="schedule-grid">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+          </tr>
+        </thead>
+        <tbody>
         {% for page in section.pages | filter(attribute="extra.status", value="past") | sort(attribute="date") | reverse %}
-        <div class="schedule-cell">
-          <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-        </div>
-        <div class="schedule-cell">
-          <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-        </div>
+          <tr>
+            <td><time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time></td>
+            <td><a href="{{ page.permalink | safe }}">{{ page.title }}</a></td>
+          </tr>
         {% endfor %}
+        </tbody>
+      </table>
     </section>
   </main>
 </div>
