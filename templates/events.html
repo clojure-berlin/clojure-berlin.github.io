@@ -2,11 +2,33 @@
 {% block content %}
 <div class="container">
   <header>
-    <h1>Past Events</h1>
+    <h1>Events</h1>
   </header>
 
   <main id="main-content">
     <section class="schedule">
+      {% set upcoming = section.pages | filter(attribute="extra.status", value="upcoming") %}
+      {% if upcoming %}
+      <h2>Upcoming</h2>
+      <table class="schedule-grid">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for page in upcoming | sort(attribute="date") %}
+          <tr>
+            <td><time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time></td>
+            <td><a href="{{ page.permalink | safe }}">{{ page.title }}</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      <h2>Past</h2>
       <table class="schedule-grid">
         <thead>
           <tr>
