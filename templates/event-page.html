@@ -14,7 +14,30 @@
 {% block title %} {{ page.title }} {% endblock title %}
 
 {% block content %}
-
+{% if page.extra.event_start and page.extra.event_end %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ page.title }}",
+  "startDate": "{{ page.extra.event_start | date(format="%Y-%m-%dT%H:%M:%S%:z") }}",
+  "endDate": "{{ page.extra.event_end | date(format="%Y-%m-%dT%H:%M:%S%:z") }}",
+  "location": {
+    "@type": "Place",
+    "name": "{{ page.extra.location_name }}"{% if page.extra.location_address %},
+    "address": "{{ page.extra.location_address }}"{% endif %}
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Clojure Berlin",
+    "url": "{{ config.base_url | safe }}"
+  },
+  "description": "{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}",
+  "url": "{{ page.permalink | safe }}"{% if page.extra.luma %},
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"{% endif %}
+}
+</script>
+{% endif %}
 <div class="container event-page">
 <header>
   <h1>
