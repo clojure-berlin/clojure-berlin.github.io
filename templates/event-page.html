@@ -4,11 +4,12 @@
 <meta name="description" content="{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}">
 {% endblock meta_description %}
 {% block extraheaders %}
+<link rel="canonical" href="{{ page.permalink }}">
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:url" content="{{ page.permalink }}">
 <meta property="og:type" content="article">
-<meta property="og:description" content="{% if page.summary %}{{ page.summary | striptags | safe }}{% endif %}">
-<meta property="og:image" content="{% if page.extra.og_image %}{{ page.extra.og_image | safe }}{% else %}/clojureberlin.png{% endif %}">
+<meta property="og:description" content="{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}">
+<meta property="og:image" content="{% if page.extra.og_image %}{{ page.extra.og_image | safe }}{% else %}{{ config.base_url }}/clojureberlin.png{% endif %}">
 {% endblock extraheaders %}
 {% block title %} {{ page.title }} {% endblock title %}
 
