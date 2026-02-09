@@ -11,7 +11,15 @@
   </style>
   <link rel="stylesheet" href="/style.css">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Clojure Berlin">
+  {% block meta_description %}
+  <meta name="description" content="Clojure Berlin is a meetup for people interested in Clojure, a Lisp dialect for the JVM. Join us for talks, discussions, and drinks in Berlin.">
+  {% endblock %}
   {% block extraheaders %}
+  <meta property="og:title" content="Clojure Berlin">
+  <meta property="og:url" content="{{ config.base_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Clojure Berlin is a meetup for people interested in Clojure, a Lisp dialect for the JVM. Join us for talks, discussions, and drinks in Berlin.">
   <meta property="og:image" content="/clojureberlin.png">
   {% endblock %}
   <title>{% block title %}Clojure Berlin{% endblock %}</title>
