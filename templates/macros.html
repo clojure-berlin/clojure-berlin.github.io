@@ -51,7 +51,7 @@ END:VCALENDAR" %}
   <tr>
     <td>&#X1F4CD; Location</td>
     <!-- At time of committing, apple maps links redirect to google on non Apple devices, so it seems the most portable way to link locations -->
-    <td><a href="https://maps.apple.com/?address={{ location | replace(from=", ", to= ",") | replace(from=" ", to="+") }}">{{ location_name }}</a></td>
+    <td><a href="https://maps.apple.com/?address={{ location | replace(from=", ", to= ",") | replace(from=" ", to="+") }}" rel="noopener noreferrer">{{ location_name }}</a></td>
   </tr>
   <tr>
     <td>🗓️ Calendar</td>
@@ -60,13 +60,13 @@ END:VCALENDAR" %}
   {% if page.extra.luma %}
   <tr>
     <td>✨ Luma</td>
-    <td><a href="{{ page.extra.luma }}">RSVP on Luma</a></td>
+    <td><a href="{{ page.extra.luma }}" rel="noopener noreferrer">RSVP on Luma</a></td>
   </tr>
   {% endif %}
   {% if page.extra.meetup %}
   <tr>
     <td>&#X1F4A9; Meetup</td>
-    <td><a href="{{ page.extra.meetup }}">RSVP on Meetup</a></td>
+    <td><a href="{{ page.extra.meetup }}" rel="noopener noreferrer">RSVP on Meetup</a></td>
   </tr>
   {% endif %}
 </table>
