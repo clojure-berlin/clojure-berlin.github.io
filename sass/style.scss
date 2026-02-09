@@ -85,14 +85,11 @@ ul {
   padding-left: $spacing-unit;
 }
 
-// Schedule Grid
+// Schedule Grid (extends base table styles below)
 .schedule-grid {
-  width: 100%;
-  border-collapse: collapse;
   border: 1px solid lighten($text-color, 70%);
 
   th, td {
-    padding: $spacing-unit;
     border: 1px solid lighten($text-color, 70%);
   }
 
@@ -100,7 +97,6 @@ ul {
     font-weight: bold;
     background: $primary-color;
     color: white;
-    text-align: left;
   }
 
   td:last-child {
@@ -111,17 +107,7 @@ ul {
     background: $background-color;
 
     a {
-      color: $primary-color;
-      text-decoration: none;
       font-weight: bold;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    time {
-      font-family: $font-family-mono;
     }
   }
 }
@@ -129,7 +115,6 @@ ul {
 // Connect section
 .connect-links {
   display: flex;
-  flex: 1;
   flex-flow: row wrap;
   gap: $spacing-unit;
   width: 100%;
@@ -194,7 +179,7 @@ main {
     grid-template-rows: auto;
     height: fit-content;
     column-gap: $spacing-unit;
-    * {
+    > * {
       grid-column: 2;
       height: fit-content;
     }
@@ -206,7 +191,7 @@ main {
 }
 
 @media (max-width: 768px) {
-  @mixin container {
+  .container {
     padding: 0 $spacing-unit;
   }
 
@@ -285,6 +270,14 @@ table {
   &:focus {
     left: $spacing-unit;
   }
+}
+
+// Footer
+footer {
+  padding: $spacing-unit * 2 0;
+  border-top: 1px solid lighten($text-color, 70%);
+  color: lighten($text-color, 30%);
+  font-size: 0.9rem;
 }
 
 // Focus styles
