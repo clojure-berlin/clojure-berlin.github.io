@@ -4,9 +4,9 @@
 <meta name="description" content="{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}">
 {% endblock meta_description %}
 {% block extraheaders %}
-<link rel="canonical" href="{{ page.permalink }}">
+<link rel="canonical" href="{{ page.permalink | trim_end_matches(pat="/") }}">
 <meta property="og:title" content="{{ page.title }}">
-<meta property="og:url" content="{{ page.permalink }}">
+<meta property="og:url" content="{{ page.permalink | trim_end_matches(pat="/") }}">
 <meta property="og:type" content="article">
 <meta property="og:description" content="{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}">
 <meta property="og:image" content="{% if page.extra.og_image %}{{ page.extra.og_image | safe }}{% else %}{{ config.base_url }}/clojureberlin.png{% endif %}">
@@ -33,7 +33,7 @@
     "url": "{{ config.base_url | safe }}"
   },
   "description": "{% if page.summary %}{{ page.summary | striptags | safe }}{% else %}{{ page.title }} - Clojure Berlin{% endif %}",
-  "url": "{{ page.permalink | safe }}"{% if page.extra.luma %},
+  "url": "{{ page.permalink | trim_end_matches(pat="/") | safe }}"{% if page.extra.luma %},
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"{% endif %}
 }
 </script>
