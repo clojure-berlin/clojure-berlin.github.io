@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Clojure Berlin Events</title>
+    <subtitle></subtitle>
+    <link rel="self" type="application/atom+xml" href="https://clojure.berlin/events/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://clojure.berlin/events/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-02-12T00:00:00+00:00</updated>
+    <id>https://clojure.berlin/events/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Get together drinks @ Trespassers</title>
+        <published>2026-02-12T00:00:00+00:00</published>
+        <updated>2026-02-12T00:00:00+00:00</updated>
+        <author>
+          <name>Clojure Berlin Orga Team</name>
+        </author>
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/2026-02/"/>
+        <id>https://clojure.berlin/events/2026-02/</id>
+        <content type="html" xml:base="https://clojure.berlin/events/2026-02/">Bye bye meetup.com drinks
+Let&#x27;s meetup for some casual food and drinks, and bid farewell to Meetup.com, another victim of private equity.
+Date: 12th February
+Location: Trespassers
+Please RSVP on Luma to stay updated.
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Clojure Meetup - July 2025</title>
+        <published>2025-07-23T00:00:00+00:00</published>
+        <updated>2025-07-23T00:00:00+00:00</updated>
+        <author>
+          <name>Clojure Berlin Orga Team</name>
+        </author>
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/2025-07-meetup/"/>
+        <id>https://clojure.berlin/events/2025-07-meetup/</id>
+        <content type="html" xml:base="https://clojure.berlin/events/2025-07-meetup/">Clojure Meetup - July 2025
+Join us for our summer Clojure meetup in Berlin!
+We are going to have a short intro on clojure-mcp and how you can use it with existing tools. Afterwards, we are going to split into groups and do a Learning Dojo to experiment with it.
+Please RSVP on Luma to stay updated.
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Bits &amp; Beers: Clojure Berlin meets Elixir Berlin</title>
+        <published>2025-03-13T00:00:00+00:00</published>
+        <updated>2025-03-13T00:00:00+00:00</updated>
+        <author>
+          <name>Clojure Berlin Orga Team</name>
+        </author>
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/elixir-drinks/"/>
+        <id>https://clojure.berlin/events/elixir-drinks/</id>
+        <content type="html" xml:base="https://clojure.berlin/events/elixir-drinks/">Pre Bobkonf get together with Elixir Berlin
+Join us for friendly beers at Volksbar in Mitte on Thursday! We&#x27;re organizing this event together with our fellow Functional Programming aficionados from Elixir Berlin.
+But wait, there&#x27;s more: this event also doubles as pre-conference drinks for Bobkonf 2025, which is happening this weekend.
+If you don&#x27;t have a ticket yet, use discount code CLOJURE-ELIXIR-MEETUP-BONUS for 12.5% off.
+</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>Get together drinks @ Trespassers</title>
+        <published>2024-12-19T00:00:00+00:00</published>
+        <updated>2024-12-19T00:00:00+00:00</updated>
+        <author>
+          <name>Clojure Berlin Orga Team</name>
+        </author>
+        <link rel="alternate" type="text/html" href="https://clojure.berlin/events/2024-12/"/>
+        <id>https://clojure.berlin/events/2024-12/</id>
+        <content type="html" xml:base="https://clojure.berlin/events/2024-12/">Clojure Berlin Pre Holidays get together drinks
+People left in Berlin - let&#x27;s meetup and get together before the year is out!
+Date: 19th December
+Location: Trespassers
+Please RSVP here!
+</content>
+    </entry>
+</feed>
